@@ -1,0 +1,63 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.photos{
+  padding: 20px !important;
+}
+/* ++++++++++ photos */
+.main{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:10px;
+  text-align: center;
+}
+/* +++++++++ posts +++++ */
+.posts{
+  padding: 0 60px 60px 60px !important;
+}
+.title{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: 4px;
+  font-size: 35px;
+  text-align: center;
+  padding-top: 50px !important;
+  padding-bottom: 20px !important;
+  font-weight: bold;
+}
+.red{
+  color: red;
+}
+.users{
+  margin: auto !important;
+}
+.card{
+  text-transform: uppercase;
+}
+a{
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.btn{
+  background-color:black !important;
+  transition: 1s;
+}
+.btn:hover{
+  transition: 1s;
+  background-color: gray;
+}
+.logo{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 2px;
+}
+.navbar-nav .nav-link{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 2px;
+  margin: 0 10px !important;
+}
+.img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
