@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
+import Datafetch from './Datafetch';
 
 
 
@@ -10,21 +11,45 @@ function Todos() {
 
     let [get, setget] = useState([]);
 
+    // useEffect(() => {
+
+    //     fetch('https://jsonplaceholder.typicode.com/todos')
+    //     .then(response=>{
+    //         if(!response.ok){
+    //             throw new Error("Network response was not ok");
+    //         }
+    //         return response.json();
+    //     })
+    //     .then(data=>{
+    //         console.log(data);
+    //         setget(data);
+    //     })
+    //     .catch(error=>{
+    //         console.error('There was a problem fetching the data:', error);
+    //     })
+    // }, []);
+
+    // var xhr = new XMLHttpRequest();
+    // var url = 'https://jsonplaceholder.typicode.com/todos';
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === XMLHttpRequest.DONE) { 
+    //         if (xhr.status === 200) { 
+    //             var data = JSON.parse(xhr.responseText); 
+    //             console.log(data); 
+    //             setget(data); 
+    //         } else {
+    //             console.error('There was a problem fetching the data:', xhr.statusText); 
+    //         }
+    //     }
+    // };
+    // xhr.open('GET', url);
+    // xhr.send();
+
+    // const {get4} = Datafetch();
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/todos')
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-                setget(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+        Datafetch('todos', setget);
     }, []);
+
 
     return (
         <div>
@@ -40,6 +65,7 @@ function Todos() {
                         </tr>
                     </thead>
                     {
+                        // get4.map((item, index) => {
                         get.map((item, index) => {
                             return (
                                 <tbody>

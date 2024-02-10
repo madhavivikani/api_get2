@@ -9,6 +9,7 @@ import Albums from './Albums';
 import Photos from './Photos';
 import Todos from './Todos';
 import Users from './Users';
+import Datafetch from './Datafetch';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/photos" element={<Photos/>} />
         <Route path="/todos" element={<Todos/>} />
         <Route path="/users" element={<Users/>} />
+        <Route path="/data" element={<Datafetch/>} />
       </Routes>
 
 

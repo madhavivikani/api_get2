@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Header from './Header';
 import Spinner from 'react-bootstrap/Spinner';
+import Datafetch from './Datafetch';
 
 
 
@@ -14,22 +15,44 @@ function Photos() {
     let [get, setget] = useState([]);
     let [load, setload] = useState(true);
 
+    // useEffect(() => {
+        
+    //     fetch('https://jsonplaceholder.typicode.com/photos')
+    //     .then(response=>{
+    //         if(!response.ok){
+    //             throw new Error("Network response was not ok");
+    //         }
+    //         return response.json();
+    //     })
+    //     .then(data=>{
+    //         console.log(data);
+    //         setget(data);
+    //     })
+    //     .catch(error=>{
+    //         console.error('There was a problem fetching the data:', error);
+    //     })
+    // }, []);
+
+    // var xhr = new XMLHttpRequest();
+    // var url = 'https://jsonplaceholder.typicode.com/photos';
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === XMLHttpRequest.DONE) { 
+    //         if (xhr.status === 200) { 
+    //             var data = JSON.parse(xhr.responseText); 
+    //             console.log(data); 
+    //             setget(data); 
+    //         } else {
+    //             console.error('There was a problem fetching the data:', xhr.statusText); 
+    //         }
+    //     }
+    // };
+    // xhr.open('GET', url);
+    // xhr.send();
+
+    // const {get3} = Datafetch();
+
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/photos')
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-                setget(response.data);
-                setload(false);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-                setload(false);
-            })
-            .finally(function () {
-                // always executed
-            });
+        Datafetch('photos', setget);
     }, []);
 
 
@@ -48,6 +71,7 @@ function Photos() {
                             <p className='title'>PH<font className="red">O</font>ToS PAGE...!!</p>
                             <div className='main'>
                                 {
+                                    // get3.map((item, index) => {
                                     get.map((item, index) => {
                                         return (
                                             <Card style={{ width: '27rem' }}>

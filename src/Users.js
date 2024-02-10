@@ -3,31 +3,55 @@ import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
+import Datafetch from './Datafetch';
 
 
 function Users() {
 
     let [get, setget] = useState([]);
 
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/users')
+    //     .then(response=>{
+    //         if(!response.ok){
+    //             throw new Error("Network response was not ok");
+    //         }
+    //         return response.json();
+    //     })
+    //     .then(data=>{
+    //         console.log(data);
+    //         setget(data);
+    //     })
+    //     .catch(error=>{
+    //         console.error('There was a problem fetching the data:', error);
+    //     })
+    // }, []);
+
+    // var xhr = new XMLHttpRequest();
+    // var url = 'https://jsonplaceholder.typicode.com/users';
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState === XMLHttpRequest.DONE) { 
+    //         if (xhr.status === 200) { 
+    //             var data = JSON.parse(xhr.responseText); 
+    //             console.log(data); 
+    //             setget(data); 
+    //         } else {
+    //             console.error('There was a problem fetching the data:', xhr.statusText); 
+    //         }
+    //     }
+    // };
+    // xhr.open('GET', url);
+    // xhr.send();
+
+    // const { get5 } = Datafetch();
+    
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users')
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-                setget(response.data);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+        Datafetch('users', setget);
     }, []);
 
     return (
         <div>
-            <Header/>
+            <Header />
             <div className='posts'>
                 <p className='title'>U<font className="red">S</font>eRS PAGE...!!</p>
                 <Table hover bordered>
@@ -44,6 +68,7 @@ function Users() {
                         </tr>
                     </thead>
                     {
+                        // get5.map((item, index) => {
                         get.map((item, index) => {
                             return (
                                 <tbody>
